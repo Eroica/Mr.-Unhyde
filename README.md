@@ -2,11 +2,11 @@
 
 This is an old OS X menu bar application that I had lying around on my computer.
 
-The original use case was this: With the OS X Dock hidden (to save screen estate), it automatically un-hides the Dock when the mouse is near the bottom screen **and** the mouse movement exceeded a certain acceleration.
+The original use case was this: With the OS X Dock hidden (to save screen estate), it automatically un-hides the Dock when the mouse is near the bottom screen **and** the mouse movement exceeds a certain acceleration.
 
 The dependency on mouse acceleration was important so that you can still use the mouse on the bottom half of the screen without the Dock constantly moving up and down.
 
-I no longer develop this project for now, but I thougt I put it on GitHub if others are interested in this idea. I might continue development if others find little program useful.
+I no longer develop this project for now, but I thougt I put it on GitHub if others are interested in this idea. I might continue development if others find this useful.
 
 At the moment, it only supports the Dock being on the bottom.
 
