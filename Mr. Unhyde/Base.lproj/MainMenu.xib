@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+            <connections>
+                <outlet property="appMenu" destination="X2x-ZZ-EmP" id="j2k-Y1-BiP"/>
+                <outlet property="preferencesController" destination="9gs-n7-YfY" id="VRK-iP-9xI"/>
+                <outlet property="preferencesMenuItem" destination="T4C-b2-TNe" id="Ytr-rs-FEU"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu title="Mr. Unhyde" systemMenu="apple" id="X2x-ZZ-EmP">
+            <items>
+                <menuItem title="About Mr. Unhyde" id="AxY-pV-ZJp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="6Ie-Yf-bWa"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="1Jc-7g-6xt"/>
+                <menuItem title="Preferences…" keyEquivalent="," id="T4C-b2-TNe">
+                    <connections>
+                        <action selector="onOpenPreferencesClicked:" target="Voe-Tx-rLC" id="WTt-qc-fNf"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="t5O-f6-nbh"/>
+                <menuItem title="Quit Mr. Unhyde" keyEquivalent="q" id="Lk6-9f-z4u">
+                    <connections>
+                        <action selector="terminate:" target="-1" id="w8b-oQ-WUZ"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="101" y="-57"/>
+        </menu>
+        <customObject id="9gs-n7-YfY" userLabel="PreferencesController" customClass="PreferencesController"/>
+    </objects>
+</document>

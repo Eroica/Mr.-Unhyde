@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesController">
+            <connections>
+                <outlet property="window" destination="cuk-nR-Htd" id="moA-hm-lIf"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="cuk-nR-Htd">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="480" height="220"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1127"/>
+            <value key="minSize" type="size" width="480" height="220"/>
+            <value key="maxSize" type="size" width="480" height="220"/>
+            <view key="contentView" id="RcH-to-CHM">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="220"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lbT-z4-63A">
+                        <rect key="frame" x="22" y="180" width="126" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Show Dock when … " id="wXd-tY-T1e">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bUp-IC-8wQ">
+                        <rect key="frame" x="22" y="147" width="120" height="18"/>
+                        <buttonCell key="cell" type="check" title="Mouse is below" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="08L-nm-my1">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="onPreferencesChanged:" target="-2" id="CnA-ce-IbP"/>
+                            <binding destination="4jk-kM-UFZ" name="value" keyPath="values.isMousePosition" id="ozg-TW-oRb">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="1"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t9o-A6-Aq3">
+                        <rect key="frame" x="147" y="141" width="71" height="25"/>
+                        <popUpButtonCell key="cell" type="push" title="75 %" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Iad-T2-7V1" id="BQ4-9x-bFC">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="3LQ-d4-peZ">
+                                <items>
+                                    <menuItem title="75 %" state="on" id="Iad-T2-7V1"/>
+                                    <menuItem title="50 %" id="50W-Z4-MNT"/>
+                                    <menuItem title="25 %" id="UKe-ol-PiO"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="onPreferencesChanged:" target="-2" id="Gpv-6s-tSz"/>
+                            <binding destination="4jk-kM-UFZ" name="selectedValue" keyPath="values.mousePosition" id="j1k-wt-Gfb">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">75 %</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CyJ-Vv-F6f">
+                        <rect key="frame" x="220" y="148" width="84" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="of the screen" id="5yS-eN-nS3">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Khn-FY-Rj2">
+                        <rect key="frame" x="22" y="115" width="121" height="18"/>
+                        <buttonCell key="cell" type="check" title="Mouse speed is" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hAe-R4-vrj">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="onPreferencesChanged:" target="-2" id="e0K-Ry-oRC"/>
+                            <binding destination="4jk-kM-UFZ" name="value" keyPath="values.isMouseSpeed" id="8Oa-Kx-5aO">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="1"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-Gz-Ymj">
+                        <rect key="frame" x="46" y="74" width="324" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="Rcw-Gn-Fge"/>
+                        </constraints>
+                        <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="5" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="5" allowsTickMarkValuesOnly="YES" sliderType="linear" id="zd0-uA-Nmb"/>
+                        <connections>
+                            <action selector="onPreferencesChanged:" target="-2" id="JDq-dL-H4X"/>
+                            <binding destination="4jk-kM-UFZ" name="value" keyPath="values.mouseSpeed" id="1OD-Nx-iJk">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="1"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jde-AK-vxe">
+                        <rect key="frame" x="46" y="58" width="29" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Slow" id="z0s-A4-Y4a">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3kd-Gt-UZP">
+                        <rect key="frame" x="344" y="58" width="26" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Fast" id="8CL-eg-A8b">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CyJ-Vv-F6f" firstAttribute="leading" secondItem="t9o-A6-Aq3" secondAttribute="trailing" constant="8" id="1VY-92-ptW"/>
+                    <constraint firstItem="Khn-FY-Rj2" firstAttribute="leading" secondItem="RcH-to-CHM" secondAttribute="leading" constant="24" id="2YL-Vy-H7t"/>
+                    <constraint firstItem="lbT-z4-63A" firstAttribute="top" secondItem="RcH-to-CHM" secondAttribute="top" constant="24" id="9Jd-yg-Mn2"/>
+                    <constraint firstItem="3kd-Gt-UZP" firstAttribute="trailing" secondItem="ezb-Gz-Ymj" secondAttribute="trailing" id="AEn-tD-ThK"/>
+                    <constraint firstItem="Jde-AK-vxe" firstAttribute="leading" secondItem="ezb-Gz-Ymj" secondAttribute="leading" id="BZE-Ho-arS"/>
+                    <constraint firstItem="bUp-IC-8wQ" firstAttribute="leading" secondItem="RcH-to-CHM" secondAttribute="leading" constant="24" id="FGE-Ug-dzK"/>
+                    <constraint firstItem="t9o-A6-Aq3" firstAttribute="firstBaseline" secondItem="bUp-IC-8wQ" secondAttribute="firstBaseline" id="KwS-Ni-RAG"/>
+                    <constraint firstItem="ezb-Gz-Ymj" firstAttribute="top" secondItem="Khn-FY-Rj2" secondAttribute="bottom" constant="16" id="OZz-pP-e9c"/>
+                    <constraint firstItem="t9o-A6-Aq3" firstAttribute="leading" secondItem="bUp-IC-8wQ" secondAttribute="trailing" constant="8" id="Pt9-Y3-cMJ"/>
+                    <constraint firstItem="ezb-Gz-Ymj" firstAttribute="leading" secondItem="Khn-FY-Rj2" secondAttribute="leading" constant="24" id="b6g-gp-zHE"/>
+                    <constraint firstItem="Jde-AK-vxe" firstAttribute="top" secondItem="ezb-Gz-Ymj" secondAttribute="bottom" constant="8" symbolic="YES" id="bRe-6h-GC8"/>
+                    <constraint firstItem="lbT-z4-63A" firstAttribute="leading" secondItem="RcH-to-CHM" secondAttribute="leading" constant="24" id="eg3-fc-JEW"/>
+                    <constraint firstItem="bUp-IC-8wQ" firstAttribute="top" secondItem="lbT-z4-63A" secondAttribute="bottom" constant="16" id="kSP-Bq-WlY"/>
+                    <constraint firstItem="Khn-FY-Rj2" firstAttribute="top" secondItem="bUp-IC-8wQ" secondAttribute="bottom" constant="16" id="kdO-lz-VaA"/>
+                    <constraint firstItem="CyJ-Vv-F6f" firstAttribute="firstBaseline" secondItem="bUp-IC-8wQ" secondAttribute="firstBaseline" id="ulI-SK-PC7"/>
+                    <constraint firstItem="3kd-Gt-UZP" firstAttribute="firstBaseline" secondItem="Jde-AK-vxe" secondAttribute="firstBaseline" id="x1r-W8-54w"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="200" y="330"/>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="4jk-kM-UFZ"/>
+    </objects>
+</document>
