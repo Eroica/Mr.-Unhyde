@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A0A784D2AE32F230007B7D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A784C2AE32F230007B7D3 /* AppDelegate.m */; };
+		3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A784E2AE32F240007B7D3 /* Assets.xcassets */; };
+		3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A78502AE32F240007B7D3 /* MainMenu.xib */; };
+		3A0A78542AE32F240007B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A78532AE32F240007B7D3 /* main.m */; };
+		3A881EA22AE443280073B586 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A881EA02AE443280073B586 /* PreferencesController.m */; };
+		3A881EA32AE443280073B586 /* PreferencesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881EA12AE443280073B586 /* PreferencesController.xib */; };
+		3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE468CE2AE558A0009FACBE /* MouseObserver.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mr. Unhyde.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A0A784B2AE32F230007B7D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3A0A784C2AE32F230007B7D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3A0A784E2AE32F240007B7D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A0A78512AE32F240007B7D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3A0A78532AE32F240007B7D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mr__Unhyde.entitlements; sourceTree = "<group>"; };
+		3A881E9F2AE443280073B586 /* PreferencesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		3A881EA02AE443280073B586 /* PreferencesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		3A881EA12AE443280073B586 /* PreferencesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesController.xib; sourceTree = "<group>"; };
+		3AE468CD2AE558A0009FACBE /* MouseObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseObserver.h; sourceTree = "<group>"; };
+		3AE468CE2AE558A0009FACBE /* MouseObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseObserver.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A0A78452AE32F230007B7D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A0A783F2AE32F230007B7D3 = {
+			isa = PBXGroup;
+			children = (
+				3A0A784A2AE32F230007B7D3 /* Mr. Unhyde */,
+				3A0A78492AE32F230007B7D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A0A78492AE32F230007B7D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A0A784A2AE32F230007B7D3 /* Mr. Unhyde */ = {
+			isa = PBXGroup;
+			children = (
+				3A0A784B2AE32F230007B7D3 /* AppDelegate.h */,
+				3A0A784C2AE32F230007B7D3 /* AppDelegate.m */,
+				3A0A784E2AE32F240007B7D3 /* Assets.xcassets */,
+				3A0A78532AE32F240007B7D3 /* main.m */,
+				3A0A78502AE32F240007B7D3 /* MainMenu.xib */,
+				3AE468CD2AE558A0009FACBE /* MouseObserver.h */,
+				3AE468CE2AE558A0009FACBE /* MouseObserver.m */,
+				3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */,
+				3A881E9F2AE443280073B586 /* PreferencesController.h */,
+				3A881EA02AE443280073B586 /* PreferencesController.m */,
+				3A881EA12AE443280073B586 /* PreferencesController.xib */,
+			);
+			path = "Mr. Unhyde";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A0A78472AE32F230007B7D3 /* Mr. Unhyde */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A0A78582AE32F240007B7D3 /* Build configuration list for PBXNativeTarget "Mr. Unhyde" */;
+			buildPhases = (
+				3A0A78442AE32F230007B7D3 /* Sources */,
+				3A0A78452AE32F230007B7D3 /* Frameworks */,
+				3A0A78462AE32F230007B7D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mr. Unhyde";
+			productName = "Mr. Unhyde";
+			productReference = 3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A0A78402AE32F230007B7D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					3A0A78472AE32F230007B7D3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 3A0A78432AE32F230007B7D3 /* Build configuration list for PBXProject "Mr. Unhyde" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A0A783F2AE32F230007B7D3;
+			productRefGroup = 3A0A78492AE32F230007B7D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A0A78472AE32F230007B7D3 /* Mr. Unhyde */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A0A78462AE32F230007B7D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A881EA32AE443280073B586 /* PreferencesController.xib in Resources */,
+				3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */,
+				3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A0A78442AE32F230007B7D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A881EA22AE443280073B586 /* PreferencesController.m in Sources */,
+				3A0A78542AE32F240007B7D3 /* main.m in Sources */,
+				3A0A784D2AE32F230007B7D3 /* AppDelegate.m in Sources */,
+				3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A0A78502AE32F240007B7D3 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A0A78512AE32F240007B7D3 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A0A78562AE32F240007B7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3A0A78572AE32F240007B7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3A0A78592AE32F240007B7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mr. Unhyde/Mr__Unhyde.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023, Eroica";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "earth.groundctrl.Mr--Unhyde";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		3A0A785A2AE32F240007B7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mr. Unhyde/Mr__Unhyde.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2023, Eroica";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "earth.groundctrl.Mr--Unhyde";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A0A78432AE32F230007B7D3 /* Build configuration list for PBXProject "Mr. Unhyde" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A0A78562AE32F240007B7D3 /* Debug */,
+				3A0A78572AE32F240007B7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A0A78582AE32F240007B7D3 /* Build configuration list for PBXNativeTarget "Mr. Unhyde" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A0A78592AE32F240007B7D3 /* Debug */,
+				3A0A785A2AE32F240007B7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A0A78402AE32F230007B7D3 /* Project object */;
+}
