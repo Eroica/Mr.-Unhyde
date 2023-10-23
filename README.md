@@ -10,6 +10,8 @@ The dependency on mouse acceleration was important so that you can still use the
 
 I began rewriting this application in October 2023. It can be configured using a preferences window (but mouse speed is currently fixed). The Dock must be on the bottom side of the screen, and currently the default shortcut for toggling the Dock (`Cmd+Opt+D`) must be set and enabled. Mr. Unhyde can then work after giving it rights to macOS' _Accessibility_ settings.
 
+![Mr. Unhyde preferences](PreferencesWindow.png)
+
 ## License
 
 ![License: zlib](https://img.shields.io/badge/License-zlib-blue.svg)
