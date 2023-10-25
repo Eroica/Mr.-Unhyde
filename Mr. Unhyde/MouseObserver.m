@@ -31,7 +31,6 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
 
 @interface MouseObserver ()
 
-@property (getter=isDockHidden) BOOL dockHidden;
 @property NSEvent *eventHandler;
 @property (strong) dispatch_source_t debounceTimer;
 
