@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MouseObserver : NSObject
 
+@property (getter=isDockHidden) BOOL dockHidden;
+
 - (instancetype) init NS_DESIGNATED_INITIALIZER;
 - (instancetype) initWithDockStateHidden: (BOOL)hidden;
 - (void)setupMouseEventHandler;
