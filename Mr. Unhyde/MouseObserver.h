@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype) init NS_DESIGNATED_INITIALIZER;
 - (instancetype) initWithDockStateHidden: (BOOL)hidden;
 - (void)setupMouseEventHandler;
+- (NSEvent *)setupLocalEventHandler;
 - (void)toggleDock;
 - (void)onDestroy;
 

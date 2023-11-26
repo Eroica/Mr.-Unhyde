@@ -118,6 +118,50 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
 }
 
 
+- (NSEvent *)setupLocalEventHandler {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    double isMousePosition = [defaults boolForKey:@"isMousePosition"];
+    double isMouseSpeed = [defaults boolForKey:@"isMouseSpeed"];
+    double positionMultiplier = [[MOUSE_POSITION_MULTIPLIER objectForKey:[defaults objectForKey:@"mousePosition"]] doubleValue];
+    double mouseSpeed = [[MOUSE_SPEED objectForKey:[defaults objectForKey:@"mouseSpeed"]] integerValue];
+    
+    unsigned int screenHeight = [[NSScreen mainScreen] frame].size.height;
+
+    double __block oldPos = [NSEvent mouseLocation].y;
+    double __block newPos = [NSEvent mouseLocation].y;
+    
+    return [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskMouseMoved handler:^NSEvent * _Nullable(NSEvent * _Nonnull event) {
+        if (self.debounceTimer != nil) {
+            dispatch_source_cancel(self.debounceTimer);
+            self.debounceTimer = nil;
+        }
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        double secondsToThrottle = 0.0005f;
+        self.debounceTimer = CreateDebounceDispatchTimer(secondsToThrottle, queue, ^{
+            newPos = [NSEvent mouseLocation].y;
+            double yAccel = fabs(oldPos - newPos);
+            oldPos = newPos;
+            
+            if (self.isDockHidden
+                && isMousePosition && (int)[NSEvent mouseLocation].y < screenHeight * positionMultiplier
+                && yAccel > mouseSpeed) {
+                [self toggleDock];
+                self.dockHidden = false;
+                return;
+            }
+            
+            if (!self.isDockHidden && isMousePosition && (int)[NSEvent mouseLocation].y > screenHeight * positionMultiplier) {
+                [self toggleDock];
+                self.dockHidden = true;
+            }
+        });
+        
+        return event;
+    }];
+}
+
+
 - (void)rebindWith:(BOOL)isMousePosition andMouseSpeed:(BOOL)isMouseSpeed forPosition:(double)position andSpeed:(int)speed {
     NSLog(@"Setting up observer with %i, %i, %f, %i", isMousePosition, isMouseSpeed, position, speed);
     
