@@ -10,6 +10,8 @@ The dependency on mouse acceleration was important so that you can still use the
 
 I began rewriting this application in October 2023. You can configure Mr. Unhyde with the preferences below. Currently, the Dock must be on the bottom side of the screen, and the default shortcut for toggling the Dock (`Cmd+Opt+D`) must be set and enabled. Like similar applications, Mr. Unhyde must be granted macOS' _Accessibility_ rights (done in System Preferences).
 
+![Mr. Unhyde demo](Demo.gif)
+
 ![Mr. Unhyde preferences](PreferencesWindow.png)
 
 ## License
