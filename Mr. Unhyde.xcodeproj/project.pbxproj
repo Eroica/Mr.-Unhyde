@@ -12,7 +12,7 @@
 		3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A78502AE32F240007B7D3 /* MainMenu.xib */; };
 		3A0A78542AE32F240007B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A78532AE32F240007B7D3 /* main.m */; };
 		3A881EA22AE443280073B586 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A881EA02AE443280073B586 /* PreferencesController.m */; };
-		3A881EA32AE443280073B586 /* PreferencesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881EA12AE443280073B586 /* PreferencesController.xib */; };
+		3A881EA32AE443280073B586 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881EA12AE443280073B586 /* Preferences.xib */; };
 		3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE468CE2AE558A0009FACBE /* MouseObserver.m */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mr__Unhyde.entitlements; sourceTree = "<group>"; };
 		3A881E9F2AE443280073B586 /* PreferencesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		3A881EA02AE443280073B586 /* PreferencesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
-		3A881EA12AE443280073B586 /* PreferencesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesController.xib; sourceTree = "<group>"; };
+		3A881EA12AE443280073B586 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		3AE468CD2AE558A0009FACBE /* MouseObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseObserver.h; sourceTree = "<group>"; };
 		3AE468CE2AE558A0009FACBE /* MouseObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +71,7 @@
 				3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */,
 				3A881E9F2AE443280073B586 /* PreferencesController.h */,
 				3A881EA02AE443280073B586 /* PreferencesController.m */,
-				3A881EA12AE443280073B586 /* PreferencesController.xib */,
+				3A881EA12AE443280073B586 /* Preferences.xib */,
 			);
 			path = "Mr. Unhyde";
 			sourceTree = "<group>";
@@ -133,7 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A881EA32AE443280073B586 /* PreferencesController.xib in Resources */,
+				3A881EA32AE443280073B586 /* Preferences.xib in Resources */,
 				3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */,
 				3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */,
 			);
