@@ -5,6 +5,8 @@
 //  Created by Eroica on 20.10.23.
 //
 
+#include <ApplicationServices/ApplicationServices.h>
+
 #import "AppDelegate.h"
 #import "MouseObserver.h"
 #import "PreferencesController.h"
@@ -20,7 +22,9 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    BOOL isDockVisibleAtStart;
+}
 
 + (void)initialize {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
@@ -31,7 +35,26 @@
     }];
 }
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    
+    
+    
+    BOOL isAccessibilityGranted = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)
+                                                                @{(__bridge NSString *)kAXTrustedCheckOptionPrompt: @YES});;
+    NSDictionary *options = @{(id)CFBridgingRelease(kAXTrustedCheckOptionPrompt): @NO};
+    BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((CFDictionaryRef)options);
+    
+    if (isAccessibilityGranted == NO) {
+        NSLog(@"Exiting ...");
+        //[NSApp terminate:nil];
+    }
+    
+    NSScreen *mainScreen = [NSScreen mainScreen];
+    isDockVisibleAtStart = !NSEqualRects([mainScreen visibleFrame], [mainScreen frame]);
+    
+    
+    
     // Insert code here to initialize your application
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.button.title = @"Mr. Unhyde";
@@ -48,7 +71,10 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
     if (self.mouseObserver != nil) {
-        [self.mouseObserver toggleDock];
+        if (self.mouseObserver.isDockHidden) {
+            [self.mouseObserver toggleDock];
+        }
+        
         [self.mouseObserver onDestroy];
     }
 }
@@ -56,6 +82,13 @@
 
 - (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app {
     return YES;
+}
+
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    [NSApp activateIgnoringOtherApps:YES];
+    [self.preferencesController showWindow:self];
+    return NO;
 }
 
 
