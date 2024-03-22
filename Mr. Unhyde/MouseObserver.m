@@ -11,6 +11,8 @@
 
 #import "MouseObserver.h"
 
+double SECONDS_TO_THROTTLE = 0.0005f;
+
 NSDictionary *MOUSE_POSITION_MULTIPLIER = @{
     @"75 %": @0.75,
     @"50 %": @0.5,
@@ -27,6 +29,31 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     }
     
     return timer;
+}
+
+static inline BOOL ShouldShowDockUsingMousePosition(MouseObserver *observer,
+                                                    BOOL isUseMousePosition,
+                                                    BOOL isUseMouseSpeed,
+                                                    int minimumHeight,
+                                                    double minimumSpeed,
+                                                    double y,
+                                                    double speed) {
+    BOOL positionFactor = !isUseMousePosition || y < minimumHeight;
+    BOOL speedFactor = !isUseMouseSpeed || speed > minimumSpeed;
+
+    return observer.isDockHidden && positionFactor && speedFactor;
+}
+
+static inline BOOL ShouldHideDockUsingMousePosition(MouseObserver *observer,
+                                                    BOOL isUseMousePosition,
+                                                    BOOL isUseMouseSpeed,
+                                                    int minimumHeight,
+                                                    double minimumSpeed,
+                                                    double y,
+                                                    double speed) {
+    BOOL positionFactor = !isUseMousePosition || y > minimumHeight;
+
+    return !observer.isDockHidden && positionFactor;
 }
 
 @interface MouseObserver ()
@@ -58,10 +85,10 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     
     MOUSE_SPEED = @{
         @1: @10,
-        @2: @25,
-        @3: @75,
-        @4: @125,
-        @5: @200,
+        @2: @50,
+        @3: @100,
+        @4: @150,
+        @5: @250,
     };
     
     self->_eventSource = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
@@ -75,21 +102,9 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     
     CGEventSetFlags(self->dd, kCGEventFlagMaskCommand ^ kCGEventFlagMaskAlternate);
     CGEventSetFlags(self->du, kCGEventFlagMaskCommand ^ kCGEventFlagMaskAlternate);
-    
-    return self;
-}
 
-
-- (instancetype)initWithDockStateHidden:(BOOL)hidden {
-    self = [self init];
-    
-    if (hidden == YES) {
-        [self toggleDock];
-    }
-    
-    _dockHidden = hidden;
     [self setupMouseEventHandler];
-    
+
     return self;
 }
 
@@ -113,8 +128,8 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     
     [self rebindWith:[defaults boolForKey:@"isMousePosition"]
        andMouseSpeed:[defaults boolForKey:@"isMouseSpeed"]
-         forPosition:positionMultiplier
-            andSpeed:mouseSpeed];
+         forMinimumPosition:positionMultiplier
+            andMinimumSpeed:mouseSpeed];
 }
 
 
@@ -123,35 +138,33 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     double isMousePosition = [defaults boolForKey:@"isMousePosition"];
     double isMouseSpeed = [defaults boolForKey:@"isMouseSpeed"];
     double positionMultiplier = [[MOUSE_POSITION_MULTIPLIER objectForKey:[defaults objectForKey:@"mousePosition"]] doubleValue];
-    double mouseSpeed = [[MOUSE_SPEED objectForKey:[defaults objectForKey:@"mouseSpeed"]] integerValue];
+    double minimumSpeed = [[MOUSE_SPEED objectForKey:[defaults objectForKey:@"mouseSpeed"]] integerValue];
     
     unsigned int screenHeight = [[NSScreen mainScreen] frame].size.height;
+    unsigned int minimumHeight = screenHeight * positionMultiplier;
 
-    double __block oldPos = [NSEvent mouseLocation].y;
-    double __block newPos = [NSEvent mouseLocation].y;
-    
+    double __block oldPosition = [NSEvent mouseLocation].y;
+    double __block newPosition = [NSEvent mouseLocation].y;
+
     return [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskMouseMoved handler:^NSEvent * _Nullable(NSEvent * _Nonnull event) {
         if (self.debounceTimer != nil) {
             dispatch_source_cancel(self.debounceTimer);
             self.debounceTimer = nil;
         }
-        
+
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        double secondsToThrottle = 0.0005f;
-        self.debounceTimer = CreateDebounceDispatchTimer(secondsToThrottle, queue, ^{
-            newPos = [NSEvent mouseLocation].y;
-            double yAccel = fabs(oldPos - newPos);
-            oldPos = newPos;
-            
-            if (self.isDockHidden
-                && isMousePosition && (int)[NSEvent mouseLocation].y < screenHeight * positionMultiplier
-                && yAccel > mouseSpeed) {
+        self.debounceTimer = CreateDebounceDispatchTimer(SECONDS_TO_THROTTLE, queue, ^{
+            newPosition = [NSEvent mouseLocation].y;
+            double deltaY = fabs(oldPosition - newPosition);
+            oldPosition = newPosition;
+
+            if (ShouldShowDockUsingMousePosition(self, isMousePosition, isMouseSpeed, minimumHeight, minimumSpeed, newPosition, deltaY)) {
                 [self toggleDock];
                 self.dockHidden = false;
                 return;
             }
-            
-            if (!self.isDockHidden && isMousePosition && (int)[NSEvent mouseLocation].y > screenHeight * positionMultiplier) {
+
+            if (ShouldHideDockUsingMousePosition(self, isMousePosition, isMouseSpeed, minimumHeight, minimumSpeed, newPosition, deltaY)) {
                 [self toggleDock];
                 self.dockHidden = true;
             }
@@ -162,17 +175,18 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
 }
 
 
-- (void)rebindWith:(BOOL)isMousePosition andMouseSpeed:(BOOL)isMouseSpeed forPosition:(double)position andSpeed:(int)speed {
-    NSLog(@"Setting up observer with %i, %i, %f, %i", isMousePosition, isMouseSpeed, position, speed);
+- (void)rebindWith:(BOOL)isMousePosition andMouseSpeed:(BOOL)isMouseSpeed forMinimumPosition:(double)position andMinimumSpeed:(int)minimumSpeed {
+    NSLog(@"Setting up observer with %i, %i, %f, %i", isMousePosition, isMouseSpeed, position, minimumSpeed);
     
     unsigned int screenHeight = [[NSScreen mainScreen] frame].size.height;
+    unsigned int minimumHeight = screenHeight * position;
     
     if (self.eventHandler != nil) {
         [NSEvent removeMonitor:self.eventHandler];
     }
     
-    double __block oldPos = [NSEvent mouseLocation].y;
-    double __block newPos = [NSEvent mouseLocation].y;
+    double __block oldPosition = [NSEvent mouseLocation].y;
+    double __block newPosition = [NSEvent mouseLocation].y;
     
     self.eventHandler = [NSEvent addGlobalMonitorForEventsMatchingMask:NSEventMaskMouseMoved handler:^(NSEvent * mouseEvent) {
         if (self.debounceTimer != nil) {
@@ -181,21 +195,22 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
         }
         
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        double secondsToThrottle = 0.0005f;
-        self.debounceTimer = CreateDebounceDispatchTimer(secondsToThrottle, queue, ^{
-            newPos = [NSEvent mouseLocation].y;
-            double yAccel = fabs(oldPos - newPos);
-            oldPos = newPos;
-            
-            if (self.isDockHidden
-                && isMousePosition && (int)[NSEvent mouseLocation].y < screenHeight * position
-                && yAccel > speed) {
+        self.debounceTimer = CreateDebounceDispatchTimer(SECONDS_TO_THROTTLE, queue, ^{
+            if (self.isPaused) {
+                return;
+            }
+
+            newPosition = [NSEvent mouseLocation].y;
+            double deltaY = fabs(oldPosition - newPosition);
+            oldPosition = newPosition;
+
+            if (ShouldShowDockUsingMousePosition(self, isMousePosition, isMouseSpeed, minimumHeight, minimumSpeed, newPosition, deltaY)) {
                 [self toggleDock];
                 self.dockHidden = false;
                 return;
             }
-            
-            if (!self.isDockHidden && isMousePosition && (int)[NSEvent mouseLocation].y > screenHeight * position) {
+
+            if (ShouldHideDockUsingMousePosition(self, isMousePosition, isMouseSpeed, minimumHeight, minimumSpeed, newPosition, deltaY)) {
                 [self toggleDock];
                 self.dockHidden = true;
             }

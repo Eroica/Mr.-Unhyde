@@ -34,6 +34,12 @@
                         <action selector="onOpenPreferencesClicked:" target="Voe-Tx-rLC" id="WTt-qc-fNf"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Pause" id="iI8-hb-6U4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="togglePaused:" target="Voe-Tx-rLC" id="BOU-Nm-Gde"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="t5O-f6-nbh"/>
                 <menuItem title="Quit Mr. Unhyde" keyEquivalent="q" id="Lk6-9f-z4u">
                     <connections>

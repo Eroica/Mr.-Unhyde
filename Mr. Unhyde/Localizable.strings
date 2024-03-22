@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Mr. Unhyde
+
+  Created by Eroica on 22.03.24.
+  
+*/
+
+"InitalizationError" = "Mr. Unhyde needs to toggle the Dock by itself. Therefore, you need to disable its auto-hide behavior.";

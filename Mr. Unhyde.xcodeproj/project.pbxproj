@@ -13,6 +13,8 @@
 		3A0A78542AE32F240007B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A78532AE32F240007B7D3 /* main.m */; };
 		3A881EA22AE443280073B586 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A881EA02AE443280073B586 /* PreferencesController.m */; };
 		3A881EA32AE443280073B586 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881EA12AE443280073B586 /* Preferences.xib */; };
+		3AD942EC2BAE24F600C5EEAB /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD942EB2BAE24F600C5EEAB /* Errors.m */; };
+		3AD942EE2BAE3A9100C5EEAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AD942ED2BAE3A9100C5EEAB /* Localizable.strings */; };
 		3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE468CE2AE558A0009FACBE /* MouseObserver.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,9 @@
 		3A881E9F2AE443280073B586 /* PreferencesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		3A881EA02AE443280073B586 /* PreferencesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		3A881EA12AE443280073B586 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		3AD942EA2BAE24F600C5EEAB /* Errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
+		3AD942EB2BAE24F600C5EEAB /* Errors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Errors.m; sourceTree = "<group>"; };
+		3AD942ED2BAE3A9100C5EEAB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3AE468CD2AE558A0009FACBE /* MouseObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseObserver.h; sourceTree = "<group>"; };
 		3AE468CE2AE558A0009FACBE /* MouseObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,14 +69,17 @@
 				3A0A784B2AE32F230007B7D3 /* AppDelegate.h */,
 				3A0A784C2AE32F230007B7D3 /* AppDelegate.m */,
 				3A0A784E2AE32F240007B7D3 /* Assets.xcassets */,
+				3AD942EA2BAE24F600C5EEAB /* Errors.h */,
+				3AD942EB2BAE24F600C5EEAB /* Errors.m */,
+				3AD942ED2BAE3A9100C5EEAB /* Localizable.strings */,
 				3A0A78532AE32F240007B7D3 /* main.m */,
 				3A0A78502AE32F240007B7D3 /* MainMenu.xib */,
 				3AE468CD2AE558A0009FACBE /* MouseObserver.h */,
 				3AE468CE2AE558A0009FACBE /* MouseObserver.m */,
 				3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */,
+				3A881EA12AE443280073B586 /* Preferences.xib */,
 				3A881E9F2AE443280073B586 /* PreferencesController.h */,
 				3A881EA02AE443280073B586 /* PreferencesController.m */,
-				3A881EA12AE443280073B586 /* Preferences.xib */,
 			);
 			path = "Mr. Unhyde";
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A881EA32AE443280073B586 /* Preferences.xib in Resources */,
+				3AD942EE2BAE3A9100C5EEAB /* Localizable.strings in Resources */,
 				3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */,
 				3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */,
 			);
@@ -148,6 +157,7 @@
 			files = (
 				3A881EA22AE443280073B586 /* PreferencesController.m in Sources */,
 				3A0A78542AE32F240007B7D3 /* main.m in Sources */,
+				3AD942EC2BAE24F600C5EEAB /* Errors.m in Sources */,
 				3A0A784D2AE32F230007B7D3 /* AppDelegate.m in Sources */,
 				3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */,
 			);
