@@ -8,7 +8,9 @@
 #import "PreferencesController.h"
 
 @interface PreferencesController ()
-    @property (nonatomic, strong) NSEvent *localMouseHandler;
+
+@property (nonatomic, strong) NSEvent *localMouseHandler;
+
 @end
 
 @implementation PreferencesController
@@ -19,25 +21,22 @@
     return self;
 }
 
+
 - (void)windowDidLoad {
     [super windowDidLoad];
 
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     self.window.delegate = self;
-}
-
-- (void)showWindow:(id)sender {
-    [super showWindow:sender];
-
-    // TODO Lookup injection
     self.localMouseHandler = [self.mouseObserver setupLocalEventHandler];
 }
+
 
 - (BOOL)windowShouldClose:(NSWindow *)sender {
     [NSEvent removeMonitor:self.localMouseHandler];
     
     return YES;
 }
+
 
 - (IBAction)onPreferencesChanged:(id)sender {
     if (self.mouseObserver != nil) {

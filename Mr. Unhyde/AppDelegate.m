@@ -5,11 +5,10 @@
 //  Created by Eroica on 20.10.23.
 //
 
-#include <ApplicationServices/ApplicationServices.h>
-
 #import "AppDelegate.h"
 #import "MouseObserver.h"
 #import "PreferencesController.h"
+#import "Errors.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +18,8 @@
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property MouseObserver *mouseObserver;
+
+- (IBAction)togglePaused:(id)sender;
 
 @end
 
@@ -37,34 +38,33 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
-    
-    
-    BOOL isAccessibilityGranted = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)
-                                                                @{(__bridge NSString *)kAXTrustedCheckOptionPrompt: @YES});;
-    NSDictionary *options = @{(id)CFBridgingRelease(kAXTrustedCheckOptionPrompt): @NO};
-    BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((CFDictionaryRef)options);
-    
-    if (isAccessibilityGranted == NO) {
-        NSLog(@"Exiting ...");
-        //[NSApp terminate:nil];
-    }
-    
-    NSScreen *mainScreen = [NSScreen mainScreen];
-    isDockVisibleAtStart = !NSEqualRects([mainScreen visibleFrame], [mainScreen frame]);
-    
-    
-    
     // Insert code here to initialize your application
-    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    self.statusItem.button.title = @"Mr. Unhyde";
-    self.statusItem.menu = self.appMenu;
-    
-    Boolean dockIsAutoHideValid = false;
-    Boolean isDockAutoHide = CFPreferencesGetAppBooleanValue(CFSTR("autohide"), CFSTR("com.apple.dock"), &dockIsAutoHideValid);
-    
-    self.mouseObserver = [[MouseObserver alloc] initWithDockStateHidden:!isDockAutoHide];
-    self.preferencesController.mouseObserver = self.mouseObserver;
+    @try {
+        NSScreen *mainScreen = [NSScreen mainScreen];
+        isDockVisibleAtStart = !NSEqualRects([mainScreen visibleFrame], [mainScreen frame]);
+        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        self.statusItem.button.title = @"Mr. Unhyde";
+        self.statusItem.menu = self.appMenu;
+
+        Boolean dockIsAutoHideValid = false;
+        Boolean isDockAutoHide = CFPreferencesGetAppBooleanValue(CFSTR("autohide"), CFSTR("com.apple.dock"), &dockIsAutoHideValid);
+
+        if (isDockAutoHide) {
+            /* Mr. Unhyde needs to control the Dock by itself, so exit here */
+            NSString *message = NSLocalizedString(@"InitalizationError", @"Error shown when auto-hide is enabled");
+            @throw [[InitializationError alloc] initWithMessage:message];
+        }
+
+        self.mouseObserver = [[MouseObserver alloc] init];
+        [self.mouseObserver toggleDock];
+        self.mouseObserver.dockHidden = YES;
+        self.preferencesController.mouseObserver = self.mouseObserver;
+    } @catch (InitializationError *e) {
+        showErrorDialog(e.reason);
+        [NSApp terminate:self];
+    } @finally {
+
+    }
 }
 
 
@@ -95,6 +95,13 @@
 - (IBAction)onOpenPreferencesClicked:(id)sender {
     [NSApp activateIgnoringOtherApps:YES];
     [self.preferencesController showWindow:self];
+}
+
+
+- (IBAction)togglePaused:(id)sender {
+    NSMenuItem *pauseItem = (NSMenuItem *)sender;
+    [pauseItem setState:([pauseItem state] == NSControlStateValueOn) ? NSControlStateValueOff : NSControlStateValueOn];
+    self.mouseObserver.paused = pauseItem.state == NSControlStateValueOn;
 }
 
 @end
