@@ -6,7 +6,6 @@
 //
 
 #include <Carbon/Carbon.h>
-#include <ApplicationServices/ApplicationServices.h>
 #import <Foundation/Foundation.h>
 
 #import "MouseObserver.h"

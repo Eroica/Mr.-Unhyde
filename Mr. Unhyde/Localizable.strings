@@ -6,4 +6,4 @@
   
 */
 
-"InitalizationError" = "Mr. Unhyde needs to toggle the Dock by itself. Therefore, you need to disable its auto-hide behavior.";
+"PositionError" = "Currently, Mr. Unhyde can only control the Dock if it is located at the bottom of the screen.";
