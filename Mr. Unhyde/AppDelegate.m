@@ -56,14 +56,16 @@
         }
 
         self.mouseObserver = [[MouseObserver alloc] init];
-        [self.mouseObserver toggleDock];
-        self.mouseObserver.dockHidden = YES;
+
+        if (isDockVisibleAtStart) {
+            [self.mouseObserver toggleDock];
+            self.mouseObserver.dockHidden = YES;
+        }
+
         self.preferencesController.mouseObserver = self.mouseObserver;
     } @catch (InitializationError *e) {
         showErrorDialog(e.reason);
         [NSApp terminate:self];
-    } @finally {
-
     }
 }
 
@@ -71,7 +73,7 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
     if (self.mouseObserver != nil) {
-        if (self.mouseObserver.isDockHidden) {
+        if (self.mouseObserver.isDockHidden && isDockVisibleAtStart) {
             [self.mouseObserver toggleDock];
         }
         
