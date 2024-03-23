@@ -10,6 +10,8 @@
 #import "PreferencesController.h"
 #import "Errors.h"
 
+NSString *DOCK_STATE_BOTTOM = @"bottom";
+
 @interface AppDelegate ()
 
 @property (strong) IBOutlet PreferencesController *preferencesController;
@@ -40,28 +42,27 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     @try {
-        NSScreen *mainScreen = [NSScreen mainScreen];
-        isDockVisibleAtStart = !NSEqualRects([mainScreen visibleFrame], [mainScreen frame]);
-        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-        self.statusItem.button.title = @"Mr. Unhyde";
-        self.statusItem.menu = self.appMenu;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *dockPosition = [[defaults persistentDomainForName:@"com.apple.dock"] valueForKey:@"orientation"];
+        NSNumber *dockAutohide = [[defaults persistentDomainForName:@"com.apple.dock"] valueForKey:@"autohide"];
 
-        Boolean dockIsAutoHideValid = false;
-        Boolean isDockAutoHide = CFPreferencesGetAppBooleanValue(CFSTR("autohide"), CFSTR("com.apple.dock"), &dockIsAutoHideValid);
-
-        if (isDockAutoHide) {
+        if (dockPosition != nil && ![dockPosition isEqualToString:DOCK_STATE_BOTTOM]) {
             /* Mr. Unhyde needs to control the Dock by itself, so exit here */
-            NSString *message = NSLocalizedString(@"InitalizationError", @"Error shown when auto-hide is enabled");
+            NSString *message = NSLocalizedString(@"PositionError", @"Error shown when Dock is not at the bottom");
             @throw [[InitializationError alloc] initWithMessage:message];
         }
 
+        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+        self.statusItem.button.title = @"Mr. Unhyde";
+        self.statusItem.menu = self.appMenu;
         self.mouseObserver = [[MouseObserver alloc] init];
 
+        isDockVisibleAtStart = ![dockAutohide boolValue] || dockAutohide == nil;
         if (isDockVisibleAtStart) {
             [self.mouseObserver toggleDock];
-            self.mouseObserver.dockHidden = YES;
         }
 
+        self.mouseObserver.dockHidden = YES;
         self.preferencesController.mouseObserver = self.mouseObserver;
     } @catch (InitializationError *e) {
         showErrorDialog(e.reason);
