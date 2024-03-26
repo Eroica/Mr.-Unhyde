@@ -19,7 +19,7 @@ I began rewriting this application in October 2023. You can configure Mr. Unhyde
 ![License: zlib](https://img.shields.io/badge/License-zlib-blue.svg)
 
 ```
-Copyright (C) 2016-2023 Eroica
+Copyright (C) 2016-2024 Eroica
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages
