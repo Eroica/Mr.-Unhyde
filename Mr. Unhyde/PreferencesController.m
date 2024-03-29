@@ -31,13 +31,6 @@
 }
 
 
-- (BOOL)windowShouldClose:(NSWindow *)sender {
-    [NSEvent removeMonitor:self.localMouseHandler];
-    
-    return YES;
-}
-
-
 - (IBAction)onPreferencesChanged:(id)sender {
     if (self.mouseObserver != nil) {
         [self.mouseObserver setupMouseEventHandler];
