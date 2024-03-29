@@ -77,7 +77,8 @@ NSString *DOCK_STATE_BOTTOM = @"bottom";
         if (self.mouseObserver.isDockHidden && isDockVisibleAtStart) {
             [self.mouseObserver toggleDock];
         }
-        
+
+        [NSEvent removeMonitor:self.preferencesController.localMouseHandler];
         [self.mouseObserver onDestroy];
     }
 }
