@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PreferencesController : NSWindowController <NSWindowDelegate>
 
 @property MouseObserver *mouseObserver;
+@property (nonatomic, strong) NSEvent *localMouseHandler;
 
 @end
 
