@@ -11,12 +11,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MouseObserver : NSObject
 
+@property BOOL mousePosition;
+@property BOOL mouseSpeed;
+@property double minimumPosition;
+@property NSInteger minimumSpeed;
+
 @property (getter=isPaused) BOOL paused;
 @property (getter=isDockHidden) BOOL dockHidden;
 
-- (instancetype) init NS_DESIGNATED_INITIALIZER;
+- (instancetype) init;
+- (instancetype) initWithUserDefaults;
+- (instancetype) initWithUsingMousePosition:(BOOL)mousePosition
+                            usingMouseSpeed:(BOOL)mouseSpeed
+                         forMinimumPosition:(double)minimumPosition
+                               minimumSpeed:(NSInteger)minimumSpeed NS_DESIGNATED_INITIALIZER;
 - (void)onDestroy;
-- (void)setupMouseEventHandler;
+- (void)updateWithUserDefaults;
 - (NSEvent *)setupLocalEventHandler;
 - (void)toggleDock;
 

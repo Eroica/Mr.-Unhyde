@@ -30,11 +30,7 @@
 
 
 - (IBAction)onPreferencesChanged:(id)sender {
-    if (self.mouseObserver != nil) {
-        [self.mouseObserver setupMouseEventHandler];
-        [NSEvent removeMonitor:self.localMouseHandler];
-        self.localMouseHandler = [self.mouseObserver setupLocalEventHandler];
-    }
+    [self.mouseObserver updateWithUserDefaults];
 }
 
 @end
