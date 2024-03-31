@@ -11,12 +11,23 @@
 		3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A784E2AE32F240007B7D3 /* Assets.xcassets */; };
 		3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A78502AE32F240007B7D3 /* MainMenu.xib */; };
 		3A0A78542AE32F240007B7D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A78532AE32F240007B7D3 /* main.m */; };
+		3A649EE22BB9ACE40078C941 /* MouseObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A649EE12BB9ACE40078C941 /* MouseObserverTests.m */; };
 		3A881EA22AE443280073B586 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A881EA02AE443280073B586 /* PreferencesController.m */; };
 		3A881EA32AE443280073B586 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A881EA12AE443280073B586 /* Preferences.xib */; };
 		3AD942EC2BAE24F600C5EEAB /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD942EB2BAE24F600C5EEAB /* Errors.m */; };
 		3AD942EE2BAE3A9100C5EEAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AD942ED2BAE3A9100C5EEAB /* Localizable.strings */; };
 		3AE468CF2AE558A0009FACBE /* MouseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE468CE2AE558A0009FACBE /* MouseObserver.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A649EDC2BB9ACC40078C941 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A0A78402AE32F230007B7D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A0A78472AE32F230007B7D3;
+			remoteInfo = "Mr. Unhyde";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mr. Unhyde.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +37,8 @@
 		3A0A78512AE32F240007B7D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3A0A78532AE32F240007B7D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A0A78552AE32F240007B7D3 /* Mr__Unhyde.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mr__Unhyde.entitlements; sourceTree = "<group>"; };
+		3A649ED82BB9ACC40078C941 /* Mr. Unhyde Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mr. Unhyde Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A649EE12BB9ACE40078C941 /* MouseObserverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseObserverTests.m; sourceTree = "<group>"; };
 		3A881E9F2AE443280073B586 /* PreferencesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		3A881EA02AE443280073B586 /* PreferencesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		3A881EA12AE443280073B586 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
@@ -44,6 +57,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A649ED52BB9ACC40078C941 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				3A0A784A2AE32F230007B7D3 /* Mr. Unhyde */,
+				3A649ED92BB9ACC40078C941 /* Mr. Unhyde Tests */,
 				3A0A78492AE32F230007B7D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */,
+				3A649ED82BB9ACC40078C941 /* Mr. Unhyde Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +106,14 @@
 			path = "Mr. Unhyde";
 			sourceTree = "<group>";
 		};
+		3A649ED92BB9ACC40078C941 /* Mr. Unhyde Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3A649EE12BB9ACE40078C941 /* MouseObserverTests.m */,
+			);
+			path = "Mr. Unhyde Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,6 +134,24 @@
 			productReference = 3A0A78482AE32F230007B7D3 /* Mr. Unhyde.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3A649ED72BB9ACC40078C941 /* Mr. Unhyde Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A649EDE2BB9ACC40078C941 /* Build configuration list for PBXNativeTarget "Mr. Unhyde Tests" */;
+			buildPhases = (
+				3A649ED42BB9ACC40078C941 /* Sources */,
+				3A649ED52BB9ACC40078C941 /* Frameworks */,
+				3A649ED62BB9ACC40078C941 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A649EDD2BB9ACC40078C941 /* PBXTargetDependency */,
+			);
+			name = "Mr. Unhyde Tests";
+			productName = "Mr. Unhyde Tests";
+			productReference = 3A649ED82BB9ACC40078C941 /* Mr. Unhyde Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -115,6 +163,10 @@
 				TargetAttributes = {
 					3A0A78472AE32F230007B7D3 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					3A649ED72BB9ACC40078C941 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 3A0A78472AE32F230007B7D3;
 					};
 				};
 			};
@@ -132,6 +184,7 @@
 			projectRoot = "";
 			targets = (
 				3A0A78472AE32F230007B7D3 /* Mr. Unhyde */,
+				3A649ED72BB9ACC40078C941 /* Mr. Unhyde Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +198,13 @@
 				3AD942EE2BAE3A9100C5EEAB /* Localizable.strings in Resources */,
 				3A0A784F2AE32F240007B7D3 /* Assets.xcassets in Resources */,
 				3A0A78522AE32F240007B7D3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A649ED62BB9ACC40078C941 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +223,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A649ED42BB9ACC40078C941 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A649EE22BB9ACE40078C941 /* MouseObserverTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A649EDD2BB9ACC40078C941 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A0A78472AE32F230007B7D3 /* Mr. Unhyde */;
+			targetProxy = 3A649EDC2BB9ACC40078C941 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3A0A78502AE32F240007B7D3 /* MainMenu.xib */ = {
@@ -338,6 +414,46 @@
 			};
 			name = Release;
 		};
+		3A649EDF2BB9ACC40078C941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "earth.groundctrl.Mr--Unhyde-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mr. Unhyde.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mr. Unhyde";
+			};
+			name = Debug;
+		};
+		3A649EE02BB9ACC40078C941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "earth.groundctrl.Mr--Unhyde-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mr. Unhyde.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mr. Unhyde";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -355,6 +471,15 @@
 			buildConfigurations = (
 				3A0A78592AE32F240007B7D3 /* Debug */,
 				3A0A785A2AE32F240007B7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A649EDE2BB9ACC40078C941 /* Build configuration list for PBXNativeTarget "Mr. Unhyde Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A649EDF2BB9ACC40078C941 /* Debug */,
+				3A649EE02BB9ACC40078C941 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
