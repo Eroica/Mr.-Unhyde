@@ -38,31 +38,6 @@ dispatch_source_t CreateDebounceDispatchTimer(double debounceTime, dispatch_queu
     return timer;
 }
 
-static inline BOOL ShouldShowDockUsingMousePosition(BOOL isDockHidden,
-                                                    BOOL isUseMousePosition,
-                                                    BOOL isUseMouseSpeed,
-                                                    NSInteger minimumHeight,
-                                                    double minimumSpeed,
-                                                    double y,
-                                                    NSInteger speed) {
-    BOOL positionFactor = !isUseMousePosition || y < minimumHeight;
-    BOOL speedFactor = !isUseMouseSpeed || speed > minimumSpeed;
-
-    return isDockHidden && positionFactor && speedFactor;
-}
-
-static inline BOOL ShouldHideDockUsingMousePosition(BOOL isDockHidden,
-                                                    BOOL isUseMousePosition,
-                                                    BOOL isUseMouseSpeed,
-                                                    NSInteger minimumHeight,
-                                                    double minimumSpeed,
-                                                    double y,
-                                                    NSInteger speed) {
-    BOOL positionFactor = !isUseMousePosition || y > minimumHeight;
-
-    return !isDockHidden && positionFactor;
-}
-
 @interface MouseObserver ()
 
 @property NSEvent *eventHandler;

@@ -9,6 +9,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+static inline BOOL ShouldShowDockUsingMousePosition(BOOL isDockHidden,
+                                                    BOOL isUseMousePosition,
+                                                    BOOL isUseMouseSpeed,
+                                                    NSInteger minimumHeight,
+                                                    double minimumSpeed,
+                                                    double y,
+                                                    NSInteger speed) {
+    /* Position value goes from bottom (0) to top (screen height) */
+    BOOL positionFactor = !isUseMousePosition || y < minimumHeight;
+    BOOL speedFactor = !isUseMouseSpeed || speed > minimumSpeed;
+
+    return isDockHidden && positionFactor && speedFactor;
+}
+
+static inline BOOL ShouldHideDockUsingMousePosition(BOOL isDockHidden,
+                                                    BOOL isUseMousePosition,
+                                                    BOOL isUseMouseSpeed,
+                                                    NSInteger minimumHeight,
+                                                    double minimumSpeed,
+                                                    double y,
+                                                    NSInteger speed) {
+    BOOL positionFactor = !isUseMousePosition || y > minimumHeight;
+
+    return !isDockHidden && positionFactor;
+}
+
 @interface MouseObserver : NSObject
 
 @property BOOL mousePosition;
