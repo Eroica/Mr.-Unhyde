@@ -9,6 +9,8 @@
 
 @interface PreferencesController ()
 
+@property (nonatomic, nullable, strong) NSEvent *localMouseHandler;
+
 @end
 
 @implementation PreferencesController
